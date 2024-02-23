@@ -19,8 +19,7 @@ const CardItem = ({ item, index, isMobile }) => {
         controls.start("onscreen");
       }
     }, [controls, inView]);
-  
-    console.log(process.env.REACT_APP_API_URL)
+
 
     return (
       <motion.div
