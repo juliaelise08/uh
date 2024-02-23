@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useDebugValue } from 'react';
 import Rating from 'react-rating-stars-component';
 import axios from 'axios';
 import user111 from '../images/reviews/user.png';
@@ -49,7 +49,6 @@ const ReviewPage = () => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/reviews`, { user: userData, rating, comment, item: bagName });
         const responseData = response.data
-        console.log(responseData)
         //fetchReviews();
         setRating(5);
         setComment('');

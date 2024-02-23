@@ -16,13 +16,13 @@ const addReview = async (req, res) => {
       const { user, rating, comment, item } = req.body;
 
       // Check if the user has already reviewed this item
-      const existingReview = await Review.findOne({ user, item });
+      const existingReview = await Review.findOne({ _id: user.user._id, item: item });
       if (existingReview) {
           return res.status(400).json({ message: 'User has already reviewed this item.' });
       }
       // Create a new review object
       const newReview = new Review({
-        user,
+        user: user.user.firstName,
         rating,
         comment,
         item
