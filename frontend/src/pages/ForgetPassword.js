@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://backendcapstone-xxrp.onrender.com/api/users/forgot-password', { email });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/users/forgot-password`, { email });
       setMessage(response.data.message);
       // Handle success
     } catch (error) {

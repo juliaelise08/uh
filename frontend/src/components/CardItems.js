@@ -20,6 +20,8 @@ const CardItem = ({ item, index, isMobile }) => {
       }
     }, [controls, inView]);
   
+    console.log(process.env.REACT_APP_API_URL)
+
     return (
       <motion.div
         variants={AnimateCardOnScreen}
@@ -33,7 +35,7 @@ const CardItem = ({ item, index, isMobile }) => {
         }}
       >
         <figure>
-          <img src={`https://backendcapstone-xxrp.onrender.com/Images/${item.image}`} alt={item.bagName} />
+          <img src={`${process.env.REACT_APP_API_URL}/Images/${item.image}`} alt={item.bagName} />
         </figure>
         <div className="card-body">
           <h2 className="card-title cursor default ">{item.bagName}</h2>

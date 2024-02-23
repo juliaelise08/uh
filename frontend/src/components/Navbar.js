@@ -17,7 +17,7 @@ function Navbar() {
     setLogout(false);
     window.location.href = "/";
     localStorage.removeItem("user");
-    const response = await fetch("/api/users/logout");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/logout`);
     const json = await response.json();
     console.log(json);
   };

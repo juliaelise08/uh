@@ -26,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
     console.log("it is working");
 
-    const response = await fetch('/api/messages/submitmessage', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/messages/submitmessage`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ enquirerEmail, enquirerName, subject, message })
@@ -76,7 +76,7 @@ const Contact = () => {
   }
 
     try {
-      const response = await axios.post('/api/subscribe', { email });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/subscribe`, { email });
 
       const responseData = response.data;
     console.log(responseData);

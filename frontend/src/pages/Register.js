@@ -18,7 +18,7 @@ const Register = () => {
 
         console.log("it is working")
 
-        const response = await fetch('https://backendcapstone-xxrp.onrender.com/api/users/register', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/register`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ firstName, lastName, address, city, province, postalCode, email, password, password1 })

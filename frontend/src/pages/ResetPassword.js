@@ -23,7 +23,7 @@ const ResetPassword = () => {
         }
 
         try {
-            const response = await axios.patch('https://backendcapstone-xxrp.onrender.com/api/users/reset-password', {
+            const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/reset-password`, {
                 token,
                 newPassword
             });

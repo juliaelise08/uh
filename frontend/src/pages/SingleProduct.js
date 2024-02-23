@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { CircleLoader } from "react-spinners";
 import { allData } from "../context/AppContext";
 
+
 const SingleProduct = () => {
 
   const { bagName } = useParams()
@@ -18,7 +19,7 @@ const SingleProduct = () => {
     setLoading(true)
 
     try {
-      const product = await fetch(`https://backendcapstone-xxrp.onrender.com/api/products/${bagName}`)
+      const product = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${bagName}`)
       const json = await product.json()
 
       console.log(json)
@@ -71,7 +72,7 @@ const SingleProduct = () => {
       bagName: product.bagName
     }
 
-    const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/wishlist/addwishlist/`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/wishlist/addwishlist/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -148,7 +149,7 @@ const SingleProduct = () => {
       quantity: 1
     }
 
-    const response = await fetch('https://backendcapstone-xxrp.onrender.com/api/cart', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -235,7 +236,7 @@ const SingleProduct = () => {
                         <div className="swiper-wrapper">
                           <div className="swiper-slide">
                             <img
-                              src={`https://backendcapstone-xxrp.onrender.com/Images/${product.image}`}
+                              src={`${process.env.REACT_APP_API_URL}/Images/${product.image}`}
                               alt={product.bagName}
                             />
                           </div>

@@ -10,7 +10,7 @@ const ViewUser = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/users/${user_id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/${user_id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch user details');
         }

@@ -15,7 +15,7 @@ const Products = () => {
   useEffect(() => {
 
     const getProducts = async () => {
-      const response = await fetch('https://backendcapstone-xxrp.onrender.com/api/products')
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products`)
       const data = await response.json()
       console.log(data)
       setHandbags(data)
@@ -35,6 +35,8 @@ const Products = () => {
       </div>
     )
   }
+
+  console.log(process.env.REACT_APP_API_URL)
 
   return (
     <>

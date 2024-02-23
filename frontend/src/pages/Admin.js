@@ -62,7 +62,7 @@ const Admin = () => {
   
   const fetchUsers = async () => {
     try {
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/users`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users`);
         const data = await response.json(); // Parse the response body as JSON
         setUsers(data); // Set the users state with the parsed JSON data
         setLoading(false);
@@ -74,7 +74,7 @@ const Admin = () => {
 
 const deleteUser = async (user_id) => {
   try {
-    await fetch(`https://backendcapstone-xxrp.onrender.com/api/users/${user_id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/users/${user_id}`, {
       method: 'DELETE',
     });
     // Remove the deleted user from the state
@@ -100,7 +100,7 @@ const deleteUser = async (user_id) => {
       postalCode: postalCode || user?.user.postalCode,
     }
 
-    const response = await fetch(`https://backendcapstone-xxrp.onrender.comapi/users/update/${user?.user._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/update/${user?.user._id}`, {
       method: 'PATCH',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },

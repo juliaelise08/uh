@@ -49,7 +49,7 @@ const Upload = () => {
         // .catch(err => console.log(err))
 
 
-        const response = await fetch('https://backendcapstone-xxrp.onrender.com/upload', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/upload`, {
             method: "POST",
             body: formData,
 

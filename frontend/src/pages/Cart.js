@@ -27,7 +27,7 @@ const Cart = () => {
 
         };
 
-        const responseget = await fetch(`https://backendcapstone-xxrp.onrender.com/config?${process.env.REACT_APP_API_KEY}`)
+        const responseget = await fetch(`${process.env.REACT_APP_API_URL}/config?${process.env.REACT_APP_API_KEY}`)
 
         const apidata = await responseget.json();
 
@@ -37,7 +37,7 @@ const Cart = () => {
             products: cartItems,
         }
 
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/payment`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
             method: "POST",
             headers: headers,
             body: JSON.stringify(body),
@@ -53,7 +53,7 @@ const Cart = () => {
             console.log(results.error)
         }
 
-        const response2 = await fetch(`https://backendcapstone-xxrp.onrender.com/api/cart/delete/${user?.user._id}`, {
+        const response2 = await fetch(`${process.env.REACT_APP_API_URL}/api/cart/delete/${user?.user._id}`, {
             method: "DELETE"
         })
         const json2 = await response2.json()
@@ -71,7 +71,7 @@ const Cart = () => {
 
     const getCartItems = async () => {
 
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/cart/${user?.user._id}`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cart/${user?.user._id}`)
         const data = await response.json()
         setCartItems(
             data.map(cartItem => {
@@ -173,7 +173,7 @@ const Cart = () => {
     </svg>
 
     const deleteHandler = async (id) => {
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/cart/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cart/${id}`, {
             method: "DELETE"
         })
 
@@ -198,7 +198,7 @@ const Cart = () => {
         const data = {
             items: cartItems
         }
-        const response = await fetch(`https://backendcapstone-xxrp.onrender.com/api/cart/${user?.user._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cart/${user?.user._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
